@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "django-todo-app"
+version = "0.1.0"
+description = ""
+authors = ["tohara220 <tohara.220@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.7"
+django-environ = "^0.11.2"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
