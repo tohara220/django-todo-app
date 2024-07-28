@@ -1,9 +1,18 @@
+import os
+
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from apps.todo.forms import TodoForm
 from apps.todo.models import Todo
+
+
+def health_check(request):
+    # docker-compose.ymlでrunning_in_dockerを環境変数で指定すること
+    running_in_docker = os.environ.get("DOCKER_CONTAINER", False)
+    return JsonResponse({"status": "ok", "running_in_docker": running_in_docker})
 
 
 class TodoListView(ListView):

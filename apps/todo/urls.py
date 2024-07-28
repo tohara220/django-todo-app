@@ -7,6 +7,7 @@ from apps.todo.views import (
     TodoDetailView,
     TodoListView,
     TodoUpdateView,
+    health_check,
 )
 
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     path("todos/<uuid:pk>/", TodoDetailView.as_view(), name="todo_detail"),
     path("todos/<uuid:pk>/update/", TodoUpdateView.as_view(), name="todo_update"),
     path("todos/<uuid:pk>/delete/", TodoDeleteView.as_view(), name="todo_delete"),
+    path("health/", health_check, name="health_check"),
 ]
