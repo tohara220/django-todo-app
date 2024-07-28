@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             gunicorn --bind 0.0.0.0:8000 core.wsgi:application"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DOCKER_CONTAINER=true
+      - DB_NAME=django_todo_app
+      - DB_USER=uninsho
+      - DB_PASSWORD=pninsho
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      - db
+    
+  db:
+    image: postgres:13
+    volumes:
+      # ホストマシンのディレクトリに直接マウントする
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: django_todo_app
+      POSTGRES_USER: uninsho
+      POSTGRES_PASSWORD: pninsho
+    ports:
+      - "5432:5432" 
