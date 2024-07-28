@@ -1,6 +1,9 @@
 # ベースイメージ
 FROM python:3.11
 
+# DBサービスの起動を待たせるスクリプト
+COPY wait-for-it.sh /wait-for-it.sh
+
 # 作業ディレクトリを設定
 WORKDIR /app
 
