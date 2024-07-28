@@ -5,6 +5,7 @@
 {% for todo in todos %}
     <li>
         {{ todo.title }}
+        {{ todo.is_overdue }}
         <a href="{% url 'todo_detail' todo.uuid %}">詳細を見る</a>
         <a href="{% url 'todo_update' todo.uuid %}">編集する</a>
         <a href="{% url 'todo_delete' todo.uuid %}">削除する</a>
