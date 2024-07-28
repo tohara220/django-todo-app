@@ -21,11 +21,13 @@ services:
   db:
     image: postgres:13
     volumes:
-      # ホストマシンのディレクトリに直接マウントする
-      - ./data/postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: django_todo_app
       POSTGRES_USER: uninsho
       POSTGRES_PASSWORD: pninsho
     ports:
       - "5432:5432" 
+
+volumes:
+  postgres_data:
