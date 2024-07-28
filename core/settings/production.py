@@ -1,3 +1,5 @@
+import os
+
 SECRET_KEY = ""
 
 DEBUG = False
@@ -7,11 +9,11 @@ ALLOWED_HOSTS = ["your-production-domain.com"]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "your_production_db",
-        "USER": "your_db_user",
-        "PASSWORD": "your_db_password",
-        "HOST": "your_db_host",
-        "PORT": "your_db_port",
+        "NAME": os.environ.get("DB_NAME", "django_todo_app"),  # データベース名
+        "USER": os.environ.get("DB_USER", "uninsho"),
+        "PASSWORD": os.environ.get("DB_PASSWORD", "pninsho"),
+        "HOST": os.environ.get("DB_HOST", "db"),  # dbはdocker-composeのサービス名
+        "PORT": os.environ.get("DB_PORT", "5432"),
     }
 }
 
