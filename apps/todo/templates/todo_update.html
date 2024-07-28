@@ -4,7 +4,19 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div>
+        <p>{{ form.title.label_tag }}</p>
+        <p>{{ form.title }}</p>
+    </div>  
+    <div>
+        <p>{{ form.description.label_tag }}</p>
+        <p>{{ form.description }}</p>
+    </div>
+    <div>
+        <p>{{ form.due_date.label_tag }}</p>
+        <p>{{ form.due_date }}</p>
+    </div>
     <button type="submit">保存する</button>
 </form>
+<a href="{% url 'todo_list' %}">一覧ページへ</a>
 {% endblock content %}
