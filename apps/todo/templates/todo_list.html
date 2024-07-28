@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="TODOリストの一覧ページです">
-        <meta name="keywords" content="TODO">
-        <title>TODO</title>
-    </head>
-    <body>
-        <h1>TODO</h1>
-        <a href="{% url 'todo_create' %}">TODOを作成する</a>
-        {% for todo in todos %}
-            <li>
-                {{ todo.title }}
-                <a href="{% url 'todo_detail' todo.uuid %}">詳細を見る</a>
-                <a href="{% url 'todo_update' todo.uuid %}">編集する</a>
-                <a href="{% url 'todo_delete' todo.uuid %}">削除する</a>
-            </li>
-        {% endfor %}
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'todo_create' %}">TODOを作成する</a>
+{% for todo in todos %}
+    <li>
+        {{ todo.title }}
+        <a href="{% url 'todo_detail' todo.uuid %}">詳細を見る</a>
+        <a href="{% url 'todo_update' todo.uuid %}">編集する</a>
+        <a href="{% url 'todo_delete' todo.uuid %}">削除する</a>
+    </li>
+{% endfor %}
+{% endblock content %}

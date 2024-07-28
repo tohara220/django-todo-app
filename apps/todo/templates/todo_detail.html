@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="TODOリストの詳細ページです">
-        <meta name="keywords" content="TODO">
-        <title>TODO</title>
-    </head>
-    <body>
-        <h1>TODO</h1>
-        <li>
-            {{ todo.title }}
-            {{ todo.description }}
-        </li>
-        <a href="{% url 'todo_list' %}">一覧に戻る</a>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<li>
+    {{ todo.title }}
+    {{ todo.description }}
+</li>
+<a href="{% url 'todo_list' %}">一覧に戻る</a>
+{% endblock content %}
