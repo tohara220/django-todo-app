@@ -10,7 +10,7 @@ Docker コンテナの起動
 docker-compose up -d
 ```
 
-Docker コンテナを修了
+Docker コンテナを終了
 
 ```bash
 docker-compose down
