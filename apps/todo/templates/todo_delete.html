@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="TODOリストの詳細ページです">
+        <meta name="keywords" content="TODO">
+        <title>TODO削除ページ</title>
+    </head>
+    <body>
+        <h1>TODOを削除する</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            <p>TODO「{{ todo.title }}」を本当に削除しますか？</p>
+            <input type="submit" value="確定">
+        </form>
+        <a href="{% url 'todo_list' %}">一覧に戻る</a>
+    </body>
+</html>
